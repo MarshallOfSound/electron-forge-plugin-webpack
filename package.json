@@ -1,0 +1,64 @@
+{
+  "name": "@electron-forge/plugin-webpack",
+  "version": "0.0.1",
+  "description": "Webpack plugin for forge",
+  "main": "dist/index.js",
+  "author": "Samuel Attard",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-module-method": "^6.16.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.0.1"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "prepublish": "yarn build",
+    "watch": "gulp watch"
+  },
+  "engines": {
+    "node": ">= 6.0"
+  },
+  "babel": {
+    "sourceMaps": "inline",
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "6"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-runtime",
+      "syntax-async-functions",
+      [
+        "transform-async-to-module-method",
+        {
+          "module": "bluebird",
+          "method": "coroutine"
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "fs-extra": "^5.0.0",
+    "global": "^4.3.2",
+    "html-webpack-plugin": "^2.30.1",
+    "npm-check-updates": "^2.14.0",
+    "spawn-rx": "^2.0.12",
+    "webpack": "^3.11.0",
+    "webpack-dev-middleware": "^2.0.5",
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack-merge": "^4.1.1"
+  }
+}
